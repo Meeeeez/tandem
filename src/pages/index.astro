@@ -1,23 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-import CTA from '../components/CTA.astro';
-import FeatureList from '../components/FeatureList.astro';
-
+import About from '../components/About.astro';
 import Timeline from '../components/Timeline.astro';
-
 import data from '../data/site.json';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
+import Divider from '../components/Divider.astro';
+import Numbers from '../components/Numbers.astro';
 ---
 
 <Layout title={data.siteName}>
   <main>
     <!--<Nav />-->
     <Hero />
-    <CTA />
-    <FeatureList />
+    <About />
+    <Divider />
+    <Numbers />
+    <Divider />
     <Timeline />
-    <Footer />
   </main>
 </Layout>

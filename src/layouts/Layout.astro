@@ -7,6 +7,7 @@ const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 
 import data from '../data/site.json';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -53,5 +54,6 @@ import data from '../data/site.json';
         <slot />
       </div>
     </div>
+    <Footer />
   </body>
 </html>
