@@ -1,0 +1,36 @@
+---
+import data from '../data/site.json';
+
+import Button from './Button.astro';
+import ButtonAlt from './ButtonAlt.astro';
+---
+
+<div
+  class="relative bg-hero-image bg-no-repeat bg-cover bg-[position:45%_0%] sm:bg-[position:0%_80%] dark:from-slate-600 rounded-xl overflow-hidden"
+>
+  <!-- background -->
+  <div class="absolute inset-0 flex items-center justify-center z-10 h-full">
+    <div class="flex justify-around h-full w-full">
+      <div class="bg-white opacity-10 w-0.5 h-full"></div>
+      <div class="bg-white opacity-10 w-0.5 h-full"></div>
+      <div class="bg-white opacity-10 w-0.5 h-full"></div>
+    </div>
+  </div>
+
+  <div class="relative z-20 items-center px-8 py-4">
+    <h1
+      class="font-display max-w-lg text-4xl font-bold text-white dark:text-white sm:text-6xl mt-80"
+    >
+      JOIN US ON AN <span class="text-primary">UNFORGETTABLE</span> JOURNEY ABOVE
+      THE CLOUDS!
+    </h1>
+    <p
+      class="my-10 text-lg text-white dark:text-white tracking-tight leading-tight"
+      set:html={data.hero.subTitle}
+    />
+    <div
+      class="mt-10 mb-5 text-right text-white text-sm font-light"
+      set:html={data.hero.imgAlt}
+    />
+  </div>
+</div>

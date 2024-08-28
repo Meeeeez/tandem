@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import CTA from '../components/CTA.astro';
+import FeatureList from '../components/FeatureList.astro';
+
+import Timeline from '../components/Timeline.astro';
+
+import data from '../data/site.json';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title={data.siteName}>
+  <main>
+    <!--<Nav />-->
+    <Hero />
+    <CTA />
+    <FeatureList />
+    <Timeline />
+    <Footer />
+  </main>
+</Layout>
