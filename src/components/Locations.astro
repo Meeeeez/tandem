@@ -1,0 +1,159 @@
+<section class="grid grid-cols-1 lg:grid-cols-4 h-full">
+  <!-- Video Section -->
+  <div
+    id="carousel"
+    class="relative overflow-hidden lg:col-span-3 rounded-t-xl lg:rounded-l-xl lg:rounded-t-none"
+  >
+    <video
+      id="video"
+      autoplay
+      loop
+      muted
+      preload="auto"
+      class="absolute w-full h-auto rounded-t-xl lg:rounded-l-xl sm:rounded-t-none"
+    >
+      <source id="videoSource" src="/vid/plose.webm" type="video/webm" />
+    </video>
+
+    <!-- Hidden overlay - enable if there are more flying areas -->
+    <div
+      id="carouselOverlay"
+      class="hidden absolute w-full h-full p-8 flex justify-between items-center"
+    >
+      <div
+        id="backButton"
+        class="flex items-center justify-center h-16 w-16 rounded-full bg-black bg-opacity-30 hover:cursor-pointer"
+      >
+        <img
+          class="w-8 mr-1 scale-x-[-1] opacity-80"
+          src="/icons/chevron.svg"
+          alt="chevron icon"
+        />
+      </div>
+      <div
+        id="nextButton"
+        class="flex items-center justify-center h-16 w-16 rounded-full bg-black bg-opacity-30 hover:cursor-pointer"
+      >
+        <img
+          class="w-8 ml-1 opacity-80"
+          src="/icons/chevron.svg"
+          alt="chevron icon"
+        />
+      </div>
+      <div class="flex space-x-2 absolute bottom-8 right-1/2 translate-x-1/2">
+        <div class="h-2 w-2 rounded-full bg-white"></div>
+        <div class="h-2 w-2 rounded-full border-white border-[1px]"></div>
+        <div class="h-2 w-2 rounded-full border-white border-[1px]"></div>
+        <div class="h-2 w-2 rounded-full border-white border-[1px]"></div>
+        <div class="h-2 w-2 rounded-full border-white border-[1px]"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text Section -->
+  <div
+    id="textSection"
+    class="flex flex-col justify-between lg:col-span-1 bg-dark rounded-b-xl lg:rounded-r-xl lg:rounded-b-none p-7"
+  >
+    <div>
+      <p class="text-primary mb-2"><i>our flying areas</i></p>
+
+      <h4
+        class="font-semibold font-display text-white text-4xl tracking-wide mb-8"
+      >
+        PLOSE
+      </h4>
+      <p class="text-white font-light">
+        <span class="hidden xl:block">
+          Our main flying area.
+          <br /><br />
+        </span>
+        Plose is a fantastic choice for your tandem flight, offering sweeping views
+        of the majestic Dolomites and the picturesque town of Brixen.
+        <br /><br />
+        <a
+          href="/plose"
+          class="inline-flex items-center gap-2 text-primary hover:underline"
+        >
+          <span>Learn more about Plose</span>
+          <span
+            ><img
+              style="width: 1.5rem;"
+              src="/icons/arrow.svg"
+              alt="arrow icon"
+            /></span
+          >
+        </a>
+      </p>
+    </div>
+    <div class="flex items-end leading-6 gap-3 self-end">
+      <span class="text-white text-sm opacity-50 font-light">starting at</span>
+      <span class="text-primary text-4xl font-semibold opacity-100">€ 100</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentVideo = 0;
+  const videos = [
+    '/vid/plose_compressed.mp4',
+    '/vid/plose_compressed.mp4',
+    '/vid/plose_compressed.mp4',
+  ];
+  const carouselElement = document.getElementById('carousel');
+  const videoElement = document.getElementById('video') as HTMLVideoElement;
+  const videoSource = document.getElementById('videoSource');
+  const carouselOverlayElement = document.getElementById('carouselOverlay');
+  const backButton = document.getElementById('backButton');
+  const nextButton = document.getElementById('nextButton');
+
+  if (
+    !carouselElement ||
+    !videoElement ||
+    !videoSource ||
+    !carouselOverlayElement ||
+    !backButton ||
+    !nextButton
+  ) {
+    throw new Error('One or more elements not found');
+  }
+
+  backButton.addEventListener('click', () => {
+    if (currentVideo === 0) {
+      currentVideo = videos.length - 1;
+    } else {
+      currentVideo--;
+    }
+
+    switchVideo(currentVideo);
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentVideo === videos.length - 1) {
+      currentVideo = 0;
+    } else {
+      currentVideo++;
+    }
+
+    switchVideo(currentVideo);
+  });
+
+  function adjustHeight() {
+    if (carouselOverlayElement && videoElement && carouselElement) {
+      carouselElement.style.height = `${videoElement.clientHeight}px`;
+      carouselOverlayElement.style.height = `${videoElement.clientHeight}px`;
+    }
+  }
+
+  function switchVideo(videoIndex: number) {
+    if (!videoSource || !videoElement) return;
+
+    videoElement.pause();
+    videoSource.setAttribute('src', videos[videoIndex]);
+    videoElement.load();
+    videoElement.play();
+  }
+
+  window.onresize = adjustHeight;
+  window.onload = adjustHeight;
+</script>

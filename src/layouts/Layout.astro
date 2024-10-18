@@ -6,7 +6,6 @@ interface Props {
 const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 
-import data from '../data/site.json';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -32,6 +31,12 @@ import Footer from '../components/Footer.astro';
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
       .container {
         max-width: 1536px;
         margin: 0 auto;
@@ -49,7 +54,7 @@ import Footer from '../components/Footer.astro';
     </style>
   </head>
   <body>
-    <div class="bg-gray-50 dark:bg-grey-800 min-h-screen">
+    <div class="bg-gray-50 dark:bg-dark min-h-screen">
       <div class="container">
         <slot />
       </div>

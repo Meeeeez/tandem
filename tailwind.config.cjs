@@ -21,7 +21,7 @@ module.exports = {
       stone: colors.stone,
       blue: colors.blue,
       green: colors.green,
-      black: colors.black,
+      dark: "#0B1215",
       white: colors.white,
       gray: colors.gray,
       emerald: colors.emerald,
