@@ -2,11 +2,11 @@
 interface Props {
   title: string;
 }
-
-const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 
 import Footer from '../components/Footer.astro';
+import Divider from '../components/Divider.astro';
+import Social from '../components/Social.astro';
 ---
 
 <!doctype html>
@@ -18,14 +18,18 @@ import Footer from '../components/Footer.astro';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title id="title">PloseFly 🪂</title>
+
+    <!-- Title glider animation -->
     <script is:inline>
-      //check for dark mode in local storage using the theme var
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      const title = document.getElementById('title');
+      let spaceCount = 1;
+
+      setInterval(() => {
+        if (spaceCount == 35) spaceCount = 0;
+        title.innerHTML = `PloseFly${'&nbsp;'.repeat(spaceCount)}🪂`;
+        spaceCount++;
+      }, 500);
     </script>
 
     <style>
@@ -57,8 +61,41 @@ import Footer from '../components/Footer.astro';
     <div class="bg-gray-50 dark:bg-dark min-h-screen">
       <div class="container">
         <slot />
+        <div class="m-0 p-0 overflow-hidden w-full -mb-12 opacity-10 relative">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 368 75"
+            preserveAspectRatio="xMinYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <text x="0" y="75" font-size="75" font-weight="bold" fill="black">
+              PLOSEFLY
+            </text>
+          </svg>
+        </div>
       </div>
     </div>
-    <Footer />
+
+    <Divider />
+
+    <div class="z-50 relative">
+      <div class="max-w-[1536px] m-auto">
+        <Footer />
+      </div>
+
+      <Divider />
+
+      <div class="container">
+        <div class="flex justify-between items-center px-10">
+          <Social color="#7F7F7F" />
+          <p class="text-sm opacity-50">
+            © {new Date().getFullYear()} PloseFly. All rights reserved.
+          </p>
+          <a class="text-sm opacity-50">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

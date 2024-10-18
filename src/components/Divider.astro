@@ -1,1 +1,11 @@
-<div class="w-[calc(100%+2rem)] h-0.5 bg-black opacity-5 -mx-4"></div>
+---
+const { wide } = Astro.props;
+---
+
+{
+  wide ? (
+    <div class="w-[calc(100%+2rem)] h-0.5 bg-black opacity-5 -mx-4" />
+  ) : (
+    <div class="h-0.5 bg-black opacity-5" />
+  )
+}

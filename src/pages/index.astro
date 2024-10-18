@@ -1,22 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import About from '../components/About.astro';
-import Timeline from '../components/Timeline.astro';
 import data from '../data/site.json';
 import Hero from '../components/Hero.astro';
 import Divider from '../components/Divider.astro';
 import Numbers from '../components/Numbers.astro';
 import Locations from '../components/Locations.astro';
-import Pricing from '../components/Pricing.astro';
 ---
 
 <Layout title={data.siteName}>
   <main>
     <Hero />
     <About />
-    <Divider />
+    <Divider wide />
     <Numbers />
-    <Divider />
+    <Divider wide />
     <div class="mt-8"></div>
     <Locations />
   </main>
