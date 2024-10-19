@@ -6,16 +6,19 @@ import Hero from '../components/Hero.astro';
 import Divider from '../components/Divider.astro';
 import Numbers from '../components/Numbers.astro';
 import Locations from '../components/Locations.astro';
+import Pricing from '../components/Pricing.astro';
 ---
 
 <Layout title={data.siteName}>
   <main>
     <Hero />
     <About />
-    <Divider wide />
+    <Divider orientation="horizontal" wide />
     <Numbers />
-    <Divider wide />
+    <Divider orientation="horizontal" wide />
     <div class="mt-8"></div>
     <Locations />
+    <div class="mt-4"></div>
+    <Pricing />
   </main>
 </Layout>

@@ -1,0 +1,25 @@
+---
+import ReviewCard from './ReviewCard.astro';
+---
+
+<section class="flex flex-col items-center">
+  <div class="flex items-center gap-2">
+    <h2
+      class="font-display text-4xl font-bold bg-primary pt-2 pb-1 px-5 leading-none tracking-wide"
+    >
+      WORLD-CLASS
+    </h2>
+    <h2 class="font-display text-4xl font-bold tracking-wide">
+      PARAGLIDING AGENCY
+    </h2>
+  </div>
+  <p>Don't just take our word for it. Our A-Team gets tons of praise.</p>
+
+  <div class="flex gap-5 mt-10 w-full flex-nowrap">
+    <ReviewCard />
+    <ReviewCard />
+    <ReviewCard />
+  </div>
+
+  <div class="flex gap-10"></div>
+</section>

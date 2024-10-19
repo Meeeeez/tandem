@@ -10,13 +10,9 @@
       loop
       muted
       preload="auto"
-      class="absolute w-full h-auto rounded-t-xl lg:rounded-l-xl sm:rounded-t-none"
+      class="w-full h-auto rounded-t-xl lg:rounded-l-xl sm:rounded-t-none"
     >
-      <source
-        id="videoSource"
-        src="/vid/plose_fast_compressed.mp4"
-        type="video/webm"
-      />
+      <source id="videoSource" src="vid/plose_slow.mp4" type="video/mp4" />
     </video>
 
     <!-- Hidden overlay - enable if there are more flying areas -->
@@ -76,8 +72,12 @@
       </p>
     </div>
     <div class="flex items-end leading-6 gap-3 self-end">
-      <span class="text-white text-sm opacity-50 font-light">starting at</span>
-      <span class="text-primary text-4xl font-semibold opacity-100">€ 100</span>
+      <span class="text-white text-sm opacity-70 font-extralight"
+        >starting at</span
+      >
+      <span class="text-primary leading-none text-4xl font-semibold opacity-100"
+        >€ 100</span
+      >
     </div>
   </div>
 </section>
@@ -127,13 +127,6 @@
     switchVideo(currentVideo);
   });
 
-  function adjustHeight() {
-    if (carouselOverlayElement && videoElement && carouselElement) {
-      carouselElement.style.height = `${videoElement.clientHeight}px`;
-      carouselOverlayElement.style.height = `${videoElement.clientHeight}px`;
-    }
-  }
-
   function switchVideo(videoIndex: number) {
     if (!videoSource || !videoElement) return;
 
@@ -142,7 +135,4 @@
     videoElement.load();
     videoElement.play();
   }
-
-  window.onresize = adjustHeight;
-  window.onload = adjustHeight;
 </script>

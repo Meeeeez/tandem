@@ -1,12 +1,26 @@
 ---
-const { class: className } = Astro.props;
+const { class: className, size, href } = Astro.props;
 ---
 
-<button
-  class:list={[
-    `${Astro.props.class} bg-[linear-gradient(180deg,rgba(255,229,0,1)0%,rgba(204,183,0,1)100%)] border-yellow-500 border text-black px-8 py-4 rounded-xl shadow-[inset_1px_2px_1px_0px_rgba(255,255,255,0.7)] transition-shadow duration-150 hover:shadow-[inset_1px_2px_1px_0px_rgba(255,255,255,0.5),0px_20px_30px_-10px_rgba(0,0,0,1)]`,
-    className,
-  ]}
->
-  <slot />
-</button>
+{
+  href ? (
+    <a
+      href={href}
+      class:list={[
+        `${Astro.props.class} bg-[linear-gradient(180deg,rgba(255,229,0,1)0%,rgba(204,183,0,1)100%)] border-yellow-500 border text-black ${size === 'small' ? 'px-5 py-2' : 'px-8 py-4'}  rounded-xl shadow-[inset_1px_2px_1px_0px_rgba(255,255,255,0.7)] transition-shadow duration-150 hover:shadow-[inset_1px_2px_1px_0px_rgba(255,255,255,0.5),0px_20px_30px_-10px_rgba(0,0,0,1)]`,
+        className,
+      ]}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      class:list={[
+        `${Astro.props.class} bg-[linear-gradient(180deg,rgba(255,229,0,1)0%,rgba(204,183,0,1)100%)] border-yellow-500 border text-black ${size === 'small' ? 'px-5 py-2' : 'px-8 py-4'}  rounded-xl shadow-[inset_1px_2px_1px_0px_rgba(255,255,255,0.7)] transition-shadow duration-150 hover:shadow-[inset_1px_2px_1px_0px_rgba(255,255,255,0.5),0px_20px_30px_-10px_rgba(0,0,0,1)]`,
+        className,
+      ]}
+    >
+      <slot />
+    </button>
+  )
+}

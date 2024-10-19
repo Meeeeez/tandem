@@ -1,11 +1,19 @@
 ---
-const { wide } = Astro.props;
+const { wide, orientation, color } = Astro.props;
 ---
 
 {
-  wide ? (
-    <div class="w-[calc(100%+2rem)] h-0.5 bg-black opacity-5 -mx-4" />
-  ) : (
-    <div class="h-0.5 bg-black opacity-5" />
-  )
+  orientation === 'vertical' ? (
+    <div
+      class="h-full w-1 bg-black opacity-5"
+      style={{ backgroundColor: color }}
+    />
+  ) : orientation === 'horizontal' && wide ? (
+    <div
+      class="w-[calc(100%+2rem)] h-0.5 bg-black opacity-5 -mx-4"
+      style={{ backgroundColor: color }}
+    />
+  ) : orientation === 'horizontal' ? (
+    <div class="h-0.5 bg-black opacity-5" style={{ backgroundColor: color }} />
+  ) : null
 }
