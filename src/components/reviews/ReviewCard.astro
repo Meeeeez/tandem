@@ -1,106 +1,51 @@
-<div class="flex flex-col bg-dark min-w-[400px] rounded-xl p-8 text-white">
-  <p>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the
-    1500s, when an unknown printer took a galley of type and scrambled it to
-    make a type specimen book. It has survived not only five centuries, but also
-    the leap into electronic typesetting, remaining essentially unchanged.
-  </p>
+---
+const { review } = Astro.props;
+const starArray = Array.from({ length: review.stars }, (_, i) => i);
+console.info(starArray.length);
+---
 
-  <div class="flex justify-between items-center mt-6 -mb-2">
+<div
+  style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"
+  class="flex flex-col justify-end bg-white max-w-[500px] rounded-xl p-8 text-slate-800"
+>
+  <p>{review.content}</p>
+
+  <div class="flex justify-between items-center gap-8 mt-6 -mb-2">
     <div class="flex items-center justify-center gap-3">
-      <div class="h-10 w-10 rounded-full bg-primary"></div>
+      <img src={review.imageUrl} class="h-10 w-10 rounded-full" />
       <div class="flex flex-col">
-        <p class="text-sm font-semibold">John Doe</p>
-        <p class="text-sm">20.10.2024</p>
+        <p class="text-sm font-bold">{review.name}</p>
+        <p class="text-sm font-light">
+          {new Date(review.date).toLocaleDateString('de-DE')}
+        </p>
       </div>
     </div>
 
     <div class="flex">
-      <svg
-        height="20px"
-        width="20px"
-        fill="#ffffff"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="#ffffff"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-          ><path
-            d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"
-          ></path></g
-        >
-      </svg>
-
-      <svg
-        height="20px"
-        width="20px"
-        fill="#ffffff"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="#ffffff"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-          ><path
-            d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"
-          ></path></g
-        >
-      </svg>
-
-      <svg
-        height="20px"
-        width="20px"
-        fill="#ffffff"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="#ffffff"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-          ><path
-            d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"
-          ></path></g
-        >
-      </svg>
-
-      <svg
-        height="20px"
-        width="20px"
-        fill="#ffffff"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="#ffffff"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-          ><path
-            d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"
-          ></path></g
-        >
-      </svg>
-
-      <svg
-        height="20px"
-        width="20px"
-        fill="#ffffff"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="#ffffff"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-          ><path
-            d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"
-          ></path></g
-        >
-      </svg>
+      {
+        starArray.map(() => {
+          return (
+            <svg
+              height="20px"
+              width="20px"
+              fill="#1e293b"
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#1e293b"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <g id="SVGRepo_iconCarrier">
+                <path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z" />
+              </g>
+            </svg>
+          );
+        })
+      }
     </div>
   </div>
 </div>

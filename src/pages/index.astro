@@ -7,6 +7,8 @@ import Divider from '../components/Divider.astro';
 import Numbers from '../components/Numbers.astro';
 import Locations from '../components/Locations.astro';
 import Pricing from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import Reviews from '../components/reviews/Reviews.astro';
 ---
 
 <Layout title={data.siteName}>
@@ -15,10 +17,15 @@ import Pricing from '../components/Pricing.astro';
     <About />
     <Divider orientation="horizontal" wide />
     <Numbers />
-    <Divider orientation="horizontal" wide />
-    <div class="mt-8"></div>
+    <div class="mt-3"></div>
     <Locations />
     <div class="mt-4"></div>
     <Pricing />
+    <div class="mt-8"></div>
+    <Divider orientation="horizontal" wide />
+    <FAQ />
+    <Divider orientation="horizontal" wide />
+    <div class="mt-8"></div>
+    <Reviews />
   </main>
 </Layout>

@@ -1,24 +1,77 @@
 ---
 import ReviewCard from './ReviewCard.astro';
+
+const reviews = [
+  {
+    stars: 5,
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    name: 'John Doe',
+    date: Date.now(),
+    imageUrl: 'lol',
+  },
+  {
+    stars: 5,
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    name: 'John Doe',
+    date: Date.now(),
+    imageUrl: 'lol',
+  },
+  {
+    stars: 5,
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    name: 'John Doe',
+    date: Date.now(),
+    imageUrl: 'lol',
+  },
+];
 ---
 
-<section class="flex flex-col items-center">
+<section id="reviews" class="flex flex-col items-center justify-end">
   <div class="flex items-center gap-2">
     <h2
-      class="font-display text-4xl font-bold bg-primary pt-2 pb-1 px-5 leading-none tracking-wide"
+      class="text-slate-800 font-display text-5xl font-bold bg-primary pt-3 pb-1 px-5 leading-none"
     >
-      WORLD-CLASS
+      200+
     </h2>
-    <h2 class="font-display text-4xl font-bold tracking-wide">
-      PARAGLIDING AGENCY
+    <h2 class="text-slate-800 font-display text-5xl font-bold mt-2">
+      SATISFIED PASSENGERS
     </h2>
   </div>
-  <p>Don't just take our word for it. Our A-Team gets tons of praise.</p>
+  <p class="text-slate-800">
+    Don't just take our word for it. Here is what they say about us:
+  </p>
 
-  <div class="flex gap-5 mt-10 w-full flex-nowrap">
-    <ReviewCard />
-    <ReviewCard />
-    <ReviewCard />
+  <div class="flex items-center gap-5 mt-10">
+    <div
+      id="backButton"
+      class="flex items-center justify-center h-12 w-12 rounded-full bg-black bg-opacity-30 hover:cursor-pointer"
+    >
+      <img
+        class="w-7 mr-1 scale-x-[-1] opacity-80"
+        src="/icons/chevron.svg"
+        alt="chevron icon"
+      />
+    </div>
+
+    <div class="flex gap-8 w-full flex-nowrap items-end">
+      <ReviewCard review={reviews[0]} />
+      <ReviewCard review={reviews[1]} />
+      <ReviewCard review={reviews[2]} />
+    </div>
+
+    <div
+      id="nextButton"
+      class="flex items-center justify-center h-12 w-12 rounded-full bg-black bg-opacity-30 hover:cursor-pointer"
+    >
+      <img
+        class="w-7 ml-1 opacity-80"
+        src="/icons/chevron.svg"
+        alt="chevron icon"
+      />
+    </div>
   </div>
 
   <div class="flex gap-10"></div>
