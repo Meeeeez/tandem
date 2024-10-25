@@ -1,0 +1,49 @@
+---
+import Social from './Social.astro';
+
+interface NavProps {
+  dark?: string;
+}
+
+const { dark: isDark } = Astro.props;
+---
+
+<div
+  class="top-0 left-0 z-10 right-0 flex items-center justify-between px-10 py-4"
+>
+  <!-- logo -->
+  <a href="/" class="flex">
+    <span
+      class=`text-lg ${isDark ? 'text-slate-800' : 'text-gray-100'} font-semibold`
+      >Plose</span
+    >
+    <span class="text-lg text-primary font-black">FLY</span>
+  </a>
+
+  <!-- nav links -->
+  <div class="flex gap-10">
+    <a
+      href="#about"
+      class=`${isDark ? 'text-slate-800' : 'text-gray-100'} text-sm font-light hover:underline`
+      >About Us</a
+    >
+    <a
+      href="#experiences"
+      class=`${isDark ? 'text-slate-800' : 'text-gray-100'} text-sm font-light hover:underline`
+      >Experiences</a
+    >
+    <a
+      href="#faq"
+      class=`${isDark ? 'text-slate-800' : 'text-gray-100'} text-sm font-light hover:underline`
+      >FAQ</a
+    >
+    <a
+      href="#reviews"
+      class=`${isDark ? 'text-slate-800' : 'text-gray-100'} text-sm font-light hover:underline`
+      >Reviews</a
+    >
+  </div>
+
+  <!-- social media links -->
+  <Social color={isDark ? '#000' : '#fff'} />
+</div>

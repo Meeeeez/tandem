@@ -1,14 +1,113 @@
-<section class="bg-dark">
-  <div class="h-[500px] overflow-hidden">
-    <video
-      id="video"
-      autoplay
-      loop
-      muted
-      preload="auto"
-      class="w-full relative"
-    >
-      <source id="videoSource" src="/vid/plose.webm" type="video/webm" />
-    </video>
-  </div>
-</section>
+---
+import Layout from '../layouts/Layout.astro';
+import data from '../data/site.json';
+import Nav from '../components/Nav.astro';
+import Map from '../components/Map.astro';
+---
+
+<Layout title={data.siteName}>
+  <Nav dark />
+  <main class="flex gap-16">
+    <div class="flex-1 h-screen gap-10">
+      <div class="flex flex-col gap-3">
+        <img class="bg-hero-image aspect-square w-full bg-red-600 rounded-xl" />
+        <div class="flex gap-3 w-full">
+          <img
+            class="bg-hero-image aspect-video w-full bg-red-600 rounded-xl"
+          />
+          <img
+            class="bg-hero-image aspect-video w-full bg-red-600 rounded-xl"
+          />
+          <div
+            class="bg-hero-image aspect-video w-full bg-red-600 rounded-xl flex justify-center items-center"
+          >
+            <button
+              class="p-2 px-5 bg-dark bg-opacity-50 rounded-xl text-gray-100"
+              >show all</button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-1 flex flex-col gap-10">
+      <h1 class="font-display text-4xl font-semibold">
+        TANDEM PARAGLIDING ON THE PLOSE
+      </h1>
+      <p class="-mt-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+        pellentesque nunc id nibh porta, quis mollis ipsum varius. Etiam
+        facilisis dictum pretium.
+      </p>
+
+      <section>
+        <h2 class="font-display text-slate-800 text-xl font-semibold mb-3">
+          Description
+        </h2>
+        <p class="text-slate-800">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+          pellentesque nunc id nibh porta, quis mollis ipsum varius. Etiam
+          facilisis dictum pretium.
+          <br />
+          <br />
+          Proin a egestas lacus. Donec vehicula eleifend neque, a laoreet tortor
+          consectetur ut. Vivamus velit ipsum, tristique vitae consequat vitae, interdum
+          a ex. Morbi et eros vehicula, varius orci sit amet, venenatis mauris. Phasellus
+          vitae justo ac nulla viverra ultricies.
+          <br />
+          Pellentesque dapibus viverra ex et dignissim. Sed tristique interdum dolor,
+          sed tempor enim viverra nec. Sed quis convallis arcu, non ornare quam.
+          Cras nec efficitur tortor, sit amet viverra mi. Vestibulum in vehicula
+          risus. Maecenas nec felis tempus, tempor risus ut, egestas est. Duis dapibus
+          enim at enim aliquam blandit eget in sapien. Donec metus leo, cursus ut
+          ante vitae, dignissim sagittis ex. Integer ornare vehicula rhoncus. Morbi
+          non elementum nulla.
+          <br />
+          Sed ut nisi varius, commodo sem et, tempus mauris. Vestibulum et magna
+          ac orci vulputate facilisis a euismod risus.
+        </p>
+      </section>
+
+      <Map />
+
+      <section>
+        <h2 class="font-display text-slate-800 text-xl font-semibold mb-3">
+          The day of your flight
+        </h2>
+        <p class="text-slate-800">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+          <br />
+          <br />
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but
+          also the leap into electronic typesetting, remaining essentially unchanged.
+          <br />
+          It was popularised in the 1960s with the release of Letraset sheets containing
+          Lorem Ipsum passages, and more recently with desktop publishing software
+          like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-slate-800 text-xl font-semibold mb-3">
+          What should I bring?
+        </h2>
+        <p class="text-slate-800">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Has been the industry's standard dummy text:
+        </p>
+
+        <br />
+
+        <ul class="text-slate-800 list-disc list-inside">
+          <li>Gloves</li>
+          <li>Winterjacket</li>
+          <li>Good shoes</li>
+          <li>Sunglasses (optional)</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</Layout>

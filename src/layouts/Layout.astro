@@ -1,12 +1,15 @@
 ---
 interface Props {
   title: string;
+  dark?: boolean;
 }
 import { ViewTransitions } from 'astro:transitions';
 
 import Footer from '../components/Footer.astro';
 import Divider from '../components/Divider.astro';
 import Social from '../components/Social.astro';
+
+const { dark: isDark } = Astro.props;
 ---
 
 <!doctype html>
@@ -62,7 +65,7 @@ import Social from '../components/Social.astro';
     </style>
   </head>
   <body>
-    <div class="bg-gray-50 min-h-screen">
+    <div class=`${isDark ? 'bg-dark' : 'bg-gray-50'} min-h-screen`>
       <div class="container">
         <slot />
         <div
