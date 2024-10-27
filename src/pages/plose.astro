@@ -2,32 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import data from '../data/site.json';
 import Nav from '../components/Nav.astro';
-import Map from '../components/Map.astro';
+import Map from '../components/Map';
+import FlightSelector from '../components/FlightSelector';
+import Contact from '../components/Contact.astro';
 ---
 
 <Layout title={data.siteName}>
   <Nav dark />
-  <main class="flex gap-16">
-    <div class="flex-1 h-screen gap-10">
+  <main class="flex gap-10 mt-10">
+    <div class="flex-1 flex flex-col gap-10">
       <div class="flex flex-col gap-3">
-        <img class="bg-hero-image aspect-square w-full bg-red-600 rounded-xl" />
+        <img
+          class="bg-hero-image w-full aspect-square bg-[#E0E0D1] rounded-xl"
+        />
         <div class="flex gap-3 w-full">
           <img
-            class="bg-hero-image aspect-video w-full bg-red-600 rounded-xl"
+            class="bg-hero-image aspect-video w-full bg-[#E0E0D1] rounded-xl"
           />
           <img
-            class="bg-hero-image aspect-video w-full bg-red-600 rounded-xl"
+            class="bg-hero-image aspect-video w-full bg-[#E0E0D1] rounded-xl"
           />
           <div
-            class="bg-hero-image aspect-video w-full bg-red-600 rounded-xl flex justify-center items-center"
+            class="bg-hero-image aspect-video w-full bg-[#E0E0D1] rounded-xl flex justify-center items-center"
           >
             <button
-              class="p-2 px-5 bg-dark bg-opacity-50 rounded-xl text-gray-100"
+              class="p-2 px-5 bg-dark bg-opacity-50 rounded-xl text-gray-100 text-sm transition-shadow hover:shadow-lg"
               >show all</button
             >
           </div>
         </div>
       </div>
+
+      <Contact />
     </div>
 
     <div class="flex-1 flex flex-col gap-10">
@@ -35,10 +41,14 @@ import Map from '../components/Map.astro';
         TANDEM PARAGLIDING ON THE PLOSE
       </h1>
       <p class="-mt-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-        pellentesque nunc id nibh porta, quis mollis ipsum varius. Etiam
-        facilisis dictum pretium.
+        Welcome to the Plose! A beautiful paragliding area that is conveniently
+        located above Brixen in the center of South Tyrol and is easily
+        accessible by car and public transport.
+        <br />
+        Here we offer the following tandem flights:
       </p>
+
+      <FlightSelector client:load />
 
       <section>
         <h2 class="font-display text-slate-800 text-xl font-semibold mb-3">
@@ -68,14 +78,14 @@ import Map from '../components/Map.astro';
         </p>
       </section>
 
-      <Map />
+      <Map client:load />
 
       <section>
         <h2 class="font-display text-slate-800 text-xl font-semibold mb-3">
           The day of your flight
         </h2>
         <p class="text-slate-800">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
+          Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
           <br />
           <br />
@@ -106,6 +116,7 @@ import Map from '../components/Map.astro';
           <li>Winterjacket</li>
           <li>Good shoes</li>
           <li>Sunglasses (optional)</li>
+          <li>Cash</li>
         </ul>
       </section>
     </div>
