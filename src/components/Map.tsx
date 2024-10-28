@@ -15,6 +15,8 @@ const MapComponent = () => {
       attributionControl: false,
       center: [11.6882, 46.6991],
       zoom: 12,
+      maxZoom: 19,
+      minZoom: 8,
     });
 
     map.on('load', () => {

@@ -88,9 +88,13 @@ const FlightSelctor = () => {
           <div className="relative bg-orange-500 left-3 bottom-5 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
         </button>
       </div>
-      {selectedFlight && (
-        <p className=" text-slate-800 mt-4 leading-none text-5xl font-bold opacity-100">
+      {selectedFlight ? (
+        <p className="text-slate-800 mt-4 leading-none text-5xl font-bold">
           € {selectedFlight?.price}
+        </p>
+      ) : (
+        <p className="text-gray-400 mt-4 leading-none text-5xl font-bold">
+          € 0
         </p>
       )}
     </section>
